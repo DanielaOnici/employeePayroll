@@ -86,7 +86,14 @@ namespace employeePayroll
         }
 
         private void btnCalculate_Click(object sender, EventArgs e)
-        {
+        {   
+            //Clearing the label messages before validating the fields
+            lblErrorMessageOne.Text = "";
+            lblErrorMessageTwo.Text = "";
+            lblErrorMessageThree.Text = "";
+            lblErrorMessageFour.Text = "";
+            lblResult.Text = "";
+
             //Creating the variables
             string firstName = txtbFirstName.Text.Trim();
             string lastName = txtbLastName.Text.Trim();
@@ -135,12 +142,12 @@ namespace employeePayroll
             }
 
             //Validating baseSalary
-            if (cmbbType.SelectedIndex == 0 || cmbbType.SelectedIndex == 3)
+            if (cmbbType.SelectedIndex == 0)
             {
                 try
                 {
                     baseSalary = double.Parse(inputBaseSalary);
-                    if(baseSalary < 0)
+                    if(baseSalary <= 0)
                     {
                         ErrorMessage("Invalid Base Salary. Must be greater than 0", txtbBaseSalary);
                     }
@@ -151,14 +158,101 @@ namespace employeePayroll
                 }
             }
             //Validating comission rate and gross sale
-            else if (cmbbType.SelectedIndex == 1 || cmbbType.SelectedIndex == 3)
+            else if (cmbbType.SelectedIndex == 1)
             {
+                try
+                {
+                    comissionRate = double.Parse(inputComissionRate);
+                    if(comissionRate <= 0)
+                    {
+                        ErrorMessage("Invalid Comission Rate. Must be greater than 0", txtbComissionRate);
+                    }
+                }
+                catch(Exception)
+                {
+                    ErrorMessage("Invalid Comission Rate/Gross Sales. Cannot be empty and must be only a number", txtbComissionRate);
+                }
+                try
+                {
+                    grossSale = double.Parse(inputGrossSale);
+                    if (grossSale <= 0)
+                    {
+                        ErrorMessage("Invalid Gross Sales. Must be greater than 0", txtbGrossSales);
+                    }
+                }
+                catch(Exception)
+                {
+                    ErrorMessage("Invalid Gross Sales. Cannot be empty and must be only a number", txtbGrossSales);
+                }
                 
             }
             //Validating wage and hours
             else if (cmbbType.SelectedIndex == 2)
             {
+                try
+                {
+                    wage = double.Parse(inputWage);
+                    if(wage <= 0)
+                    {
+                        ErrorMessage("Invalid Wage. Must be greater than 0", txtbWage);
+                    }
+                }
+                catch(Exception)
+                {
+                    ErrorMessage("Invalid Wage. Cannot be empty and must be only a number", txtbWage);
+                }
+                try
+                {
+                    hours = double.Parse(inputHours);
+                    if (hours <= 0)
+                    {
+                        ErrorMessage("Invalid Hours. Must be greater than 0", txtbHours);
+                    }
+                }
+                catch(Exception)
+                {
+                    ErrorMessage("Invalid Hours. Cannot be empty and must be only a number", txtbHours);
+                }
                 
+            }
+            else if(cmbbType.SelectedIndex == 3)
+            {
+                try
+                {
+                    baseSalary = double.Parse(inputBaseSalary);
+                    if (baseSalary <= 0)
+                    {
+                        ErrorMessage("Invalid Base Salary. Must be greater than 0", txtbBaseSalary);
+                    }
+                }
+                catch (Exception)
+                {
+                    ErrorMessage("Invalid Base Salary. Cannot be empty and must be a number", txtbBaseSalary);
+                }
+                try
+                {
+                    comissionRate = double.Parse(inputComissionRate);
+                    if (comissionRate <= 0)
+                    {
+                        ErrorMessage("Invalid Comission Rate. Must be greater than 0", txtbComissionRate);
+                    }
+                }
+                catch (Exception)
+                {
+                    ErrorMessage("Invalid Comission Rate/Gross Sales. Cannot be empty and must be only a number", txtbComissionRate);
+                }
+                try
+                {
+                    grossSale = double.Parse(inputGrossSale);
+                    if (grossSale <= 0)
+                    {
+                        ErrorMessage("Invalid Gross Sales. Must be greater than 0", txtbGrossSales);
+                    }
+                }
+                catch (Exception)
+                {
+                    ErrorMessage("Invalid Gross Sales. Cannot be empty and must be only a number", txtbGrossSales);
+                }
             }
 
             //Displaying a message of error if no type is selected
@@ -215,6 +309,9 @@ namespace employeePayroll
             txtbHours.Clear();
             txtbComissionRate.Clear();
             txtbGrossSales.Clear();
+
+            //Clearing the combo box
+            cmbbType.SelectedIndex = -1;
         }
 
         private void btnExit_Click(object sender, EventArgs e)

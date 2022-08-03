@@ -1,4 +1,17 @@
-﻿using System;
+﻿/*  employeePayroll.sln
+ * 
+ *  The program calculates the payroll of the employees.
+ *  Practice of inheritance and polymorphism.
+ * 
+ *  Daniela Onici
+ *  Student ID# 8754297
+ *  
+ *  2022/08/03: created
+ *  2022/08/04: finished
+ * 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +25,7 @@ namespace employeePayroll
         //Creating a method to validate name accepting at least 2 characters and no more than 12. No numbers or special characters are accepted
         public static Boolean ValidateName(string name)
         {
-            Regex validName = new Regex(@"^[A-Z]{2,12}$");
+            Regex validName = new Regex(@"^[a-zA-Z]{2,12}$");
             if (validName.IsMatch(name))
             {
                 return true;
