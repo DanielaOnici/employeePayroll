@@ -15,9 +15,33 @@ namespace employeePayroll
 {
     public partial class Form1 : Form
     {
+        //Instatiating objects of the classes
         SalariedEmployee newSalariedEmployee;
+        ComissionEmployee newComissionEmployee;
+        HourlyEmployee newHourlyEmployee;
+        BasePlusComissionEmployee newBasePlusComissionEmployee;
 
-
+        //Creating a method to check the first empty label to show the message and focus on the first error
+        public void ErrorMessage(string message, Control control)
+        {
+            if (lblErrorMessageOne.Text == null || lblErrorMessageOne.Text == "")
+            {
+                lblErrorMessageOne.Text = message;
+                control.Focus();
+            }
+            else if (lblErrorMessageTwo.Text == null || lblErrorMessageTwo.Text == "")
+            {
+                lblErrorMessageTwo.Text = message;
+            }
+            else if (lblErrorMessageThree.Text == null || lblErrorMessageThree.Text == "")
+            {
+                lblErrorMessageThree.Text = message;
+            }
+            else
+            {
+                lblErrorMessageFour.Text = message;
+            }
+        }
 
         public Form1()
         {
