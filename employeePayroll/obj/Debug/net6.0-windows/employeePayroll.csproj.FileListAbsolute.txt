@@ -1,0 +1,17 @@
+C:\Users\danie\projects\employeePayroll\employeePayroll\bin\Debug\net6.0-windows\employeePayroll.exe
+C:\Users\danie\projects\employeePayroll\employeePayroll\bin\Debug\net6.0-windows\employeePayroll.deps.json
+C:\Users\danie\projects\employeePayroll\employeePayroll\bin\Debug\net6.0-windows\employeePayroll.runtimeconfig.json
+C:\Users\danie\projects\employeePayroll\employeePayroll\bin\Debug\net6.0-windows\employeePayroll.dll
+C:\Users\danie\projects\employeePayroll\employeePayroll\bin\Debug\net6.0-windows\employeePayroll.pdb
+C:\Users\danie\projects\employeePayroll\employeePayroll\obj\Debug\net6.0-windows\employeePayroll.csproj.AssemblyReference.cache
+C:\Users\danie\projects\employeePayroll\employeePayroll\obj\Debug\net6.0-windows\employeePayroll.Form1.resources
+C:\Users\danie\projects\employeePayroll\employeePayroll\obj\Debug\net6.0-windows\employeePayroll.csproj.GenerateResource.cache
+C:\Users\danie\projects\employeePayroll\employeePayroll\obj\Debug\net6.0-windows\employeePayroll.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\danie\projects\employeePayroll\employeePayroll\obj\Debug\net6.0-windows\employeePayroll.AssemblyInfoInputs.cache
+C:\Users\danie\projects\employeePayroll\employeePayroll\obj\Debug\net6.0-windows\employeePayroll.AssemblyInfo.cs
+C:\Users\danie\projects\employeePayroll\employeePayroll\obj\Debug\net6.0-windows\employeePayroll.csproj.CoreCompileInputs.cache
+C:\Users\danie\projects\employeePayroll\employeePayroll\obj\Debug\net6.0-windows\employeePayroll.dll
+C:\Users\danie\projects\employeePayroll\employeePayroll\obj\Debug\net6.0-windows\refint\employeePayroll.dll
+C:\Users\danie\projects\employeePayroll\employeePayroll\obj\Debug\net6.0-windows\employeePayroll.pdb
+C:\Users\danie\projects\employeePayroll\employeePayroll\obj\Debug\net6.0-windows\employeePayroll.genruntimeconfig.cache
+C:\Users\danie\projects\employeePayroll\employeePayroll\obj\Debug\net6.0-windows\ref\employeePayroll.dll
