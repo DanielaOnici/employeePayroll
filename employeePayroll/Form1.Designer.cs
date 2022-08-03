@@ -35,6 +35,8 @@
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblSocialSecurityNumber = new System.Windows.Forms.Label();
             this.gpbPayroll = new System.Windows.Forms.GroupBox();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             this.lblResult = new System.Windows.Forms.Label();
             this.btnCalculate = new System.Windows.Forms.Button();
             this.lblErrorMessageFour = new System.Windows.Forms.Label();
@@ -106,6 +108,8 @@
             // 
             // gpbPayroll
             // 
+            this.gpbPayroll.Controls.Add(this.btnExit);
+            this.gpbPayroll.Controls.Add(this.btnClear);
             this.gpbPayroll.Controls.Add(this.lblResult);
             this.gpbPayroll.Controls.Add(this.btnCalculate);
             this.gpbPayroll.Controls.Add(this.lblErrorMessageFour);
@@ -132,16 +136,36 @@
             this.gpbPayroll.Controls.Add(this.txtbFirstName);
             this.gpbPayroll.Location = new System.Drawing.Point(10, 7);
             this.gpbPayroll.Name = "gpbPayroll";
-            this.gpbPayroll.Size = new System.Drawing.Size(773, 332);
+            this.gpbPayroll.Size = new System.Drawing.Size(912, 332);
             this.gpbPayroll.TabIndex = 6;
             this.gpbPayroll.TabStop = false;
             this.gpbPayroll.Text = "Payroll System";
+            // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(664, 287);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(107, 23);
+            this.btnExit.TabIndex = 32;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(547, 287);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(111, 23);
+            this.btnClear.TabIndex = 31;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // lblResult
             // 
             this.lblResult.AutoSize = true;
             this.lblResult.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblResult.Location = new System.Drawing.Point(407, 171);
+            this.lblResult.Location = new System.Drawing.Point(407, 119);
             this.lblResult.Name = "lblResult";
             this.lblResult.Size = new System.Drawing.Size(0, 17);
             this.lblResult.TabIndex = 30;
@@ -154,6 +178,7 @@
             this.btnCalculate.TabIndex = 26;
             this.btnCalculate.Text = "Calculate";
             this.btnCalculate.UseVisualStyleBackColor = true;
+            this.btnCalculate.Click += new System.EventHandler(this.btnCalculate_Click);
             // 
             // lblErrorMessageFour
             // 
@@ -298,7 +323,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(794, 351);
+            this.ClientSize = new System.Drawing.Size(931, 351);
             this.Controls.Add(this.gpbPayroll);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -335,5 +360,7 @@
         private Label lblErrorMessageThree;
         private Label lblErrorMessageTwo;
         private Label lblErrorMessageOne;
+        private Button btnExit;
+        private Button btnClear;
     }
 }

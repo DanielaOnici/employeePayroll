@@ -84,5 +84,143 @@ namespace employeePayroll
                 txtbGrossSales.Enabled = true;
             }
         }
+
+        private void btnCalculate_Click(object sender, EventArgs e)
+        {
+            //Creating the variables
+            string firstName = txtbFirstName.Text.Trim();
+            string lastName = txtbLastName.Text.Trim();
+            string SSN = txtbSSN.Text.Trim();
+            string inputBaseSalary = txtbBaseSalary.Text.Trim();
+            string inputWage = txtbWage.Text.Trim();
+            string inputHours = txtbHours.Text.Trim();
+            string inputComissionRate = txtbComissionRate.Text.Trim();
+            string inputGrossSale = txtbGrossSales.Text.Trim();
+
+            double salary = 0;
+            double baseSalary = 0;
+            double wage = 0;
+            double hours = 0;
+            double comissionRate = 0;
+            double grossSale = 0;
+
+            //Validating first name
+            if (ValidationHelper.ValidateName(firstName) == true)
+            {
+                firstName = ValidationHelper.Capitalize(firstName);
+            }
+            else
+            {
+                ErrorMessage("Invalid First Name. Min 2 characters and max 12 without numbers or special characters", txtbFirstName);
+            }
+
+            //Validating last name
+            if (ValidationHelper.ValidateName(lastName) == true)
+            {
+                lastName = ValidationHelper.Capitalize(lastName);
+            }
+            else
+            {
+                ErrorMessage("Invalid Last Name. Min 2 characters and max 12 without numbers or special characters", txtbLastName);
+
+            }
+
+            //Validating SSN
+            if(ValidationHelper.ValidateSSN(SSN) == true)
+            {
+            }
+            else
+            {
+                ErrorMessage("Invalid SSN. Must be a sequence of 5 numbers", txtbSSN);
+            }
+
+            //Validating baseSalary
+            if (cmbbType.SelectedIndex == 0 || cmbbType.SelectedIndex == 3)
+            {
+                try
+                {
+                    baseSalary = double.Parse(inputBaseSalary);
+                    if(baseSalary < 0)
+                    {
+                        ErrorMessage("Invalid Base Salary. Must be greater than 0", txtbBaseSalary);
+                    }
+                }   
+                catch(Exception)
+                {
+                    ErrorMessage("Invalid Base Salary. Cannot be empty and must be a number", txtbBaseSalary);
+                }
+            }
+            //Validating comission rate and gross sale
+            else if (cmbbType.SelectedIndex == 1 || cmbbType.SelectedIndex == 3)
+            {
+                
+            }
+            //Validating wage and hours
+            else if (cmbbType.SelectedIndex == 2)
+            {
+                
+            }
+
+            //Displaying a message of error if no type is selected
+            if (cmbbType.SelectedIndex == -1)
+            {
+                ErrorMessage("You must select the type of the employee.", cmbbType);
+            }
+
+            //Displaying the employee's information if no error occurs
+            if(lblErrorMessageOne.Text.Length == 0)
+            {
+                //Displaying the Salaried employee's information
+                if (cmbbType.SelectedIndex == 0)
+                {
+                    newSalariedEmployee = new SalariedEmployee(firstName, lastName, SSN, salary, baseSalary);
+                    lblResult.Text = $"{newSalariedEmployee.ToString()}";
+                }
+                //Displaying the Comission employee's information
+                else if (cmbbType.SelectedIndex == 1)
+                {
+                    newComissionEmployee = new ComissionEmployee(firstName, lastName, SSN, salary, comissionRate, grossSale);
+                    lblResult.Text = $"{newComissionEmployee.ToString()}\nTotal salary: {newComissionEmployee.Earnings().ToString("C2")}";
+                }
+                //Displaying the Hourly employee's information
+                else if (cmbbType.SelectedIndex == 2)
+                {
+                    newHourlyEmployee = new HourlyEmployee(firstName, lastName, SSN, salary, wage, hours);
+                    lblResult.Text = $"{newHourlyEmployee.ToString()}\nTotal salary: {newHourlyEmployee.Earnings().ToString("C2")}";
+                }
+                //Displaying the Base Plus Comission employee's information
+                else if (cmbbType.SelectedIndex == 3)
+                {
+                    newBasePlusComissionEmployee = new BasePlusComissionEmployee(firstName, lastName, SSN, salary, comissionRate, grossSale, baseSalary);
+                    lblResult.Text = $"{newBasePlusComissionEmployee.ToString()}\nTotal salary: {newBasePlusComissionEmployee.Earnings().ToString("C2")}";
+                }
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            //Clearing all the label messages
+            lblErrorMessageOne.Text = "";
+            lblErrorMessageTwo.Text = "";
+            lblErrorMessageThree.Text = "";
+            lblErrorMessageFour.Text = "";
+            lblResult.Text = "";
+
+            //Clearing all the fields
+            txtbFirstName.Clear();
+            txtbLastName.Clear();
+            txtbSSN.Clear();
+            txtbBaseSalary.Clear();
+            txtbWage.Clear();
+            txtbHours.Clear();
+            txtbComissionRate.Clear();
+            txtbGrossSales.Clear();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            //Exiting the program
+            Close();
+        }
     }
 }

@@ -41,11 +41,12 @@ namespace employeePayroll
             return base.ToString() + $"\nWage: {wage:C2}\nHours: {hours:N1}";
         }
 
+        //Overriding the method to obtain the salary
         public override double Earnings()
         {
             if(hours <= 40)
             {
-                return base.Earnings() + (wage + hours);
+                return base.Earnings() + (wage * hours);
             }
             else if(hours > 40)
             {

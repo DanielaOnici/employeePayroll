@@ -12,7 +12,7 @@ namespace employeePayroll
         //Creating a method to validate name accepting at least 2 characters and no more than 12. No numbers or special characters are accepted
         public static Boolean ValidateName(string name)
         {
-            Regex validName = new Regex(@"^[a-zA-Z]{2, 12}$");
+            Regex validName = new Regex(@"^[A-Z]{2,12}$");
             if (validName.IsMatch(name))
             {
                 return true;
@@ -21,6 +21,15 @@ namespace employeePayroll
             {
                 return false;
             }
+        }
+
+        //Creating a method to capitalize the first letter of a string
+        public static string Capitalize(string word)
+        {
+            char[] charArray = word.ToLower().Trim().ToCharArray();
+            charArray[0] = char.ToUpper(charArray[0]);
+
+            return new string(charArray);
         }
 
         //Creating a method to validate de SSN accepting only 5 numbers

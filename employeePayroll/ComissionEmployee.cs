@@ -41,6 +41,7 @@ namespace employeePayroll
             return base.ToString() + $"\nComission Rate: {comissionRate:C2}\nGross Sale: {grossSale:C2}";
         }
 
+        //Overriding the method to obtain the salary
         public override double Earnings()
         {
             return base.Earnings() + (comissionRate * grossSale);
